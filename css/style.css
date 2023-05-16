@@ -1,0 +1,507 @@
+@charset "UTF-8";
+/*
+  Con este reset vamos a resolver:
+    👉 Unificar el uso de Custom Properties
+    👉 Problemas de box-model más generales
+    👉 Problemas con imagenes, vídeos e iconos svg
+    👉 Problemas con tipografías y etiquetas input en formularios
+    👉 Unificar la tipografía de todas las etiquetas de una web
+*/
+/* Aquí definimos las Custom properties */
+:root {
+  --negro: #393939;
+  /* Tipografía */
+  --tipo-principal: 'Rowdies', cursive;
+  --tipo-secundaria: 'Righteous', cursive;
+}
+
+/* Las adaptamos al modo oscuro *
+@media (prefers-color-scheme: dark) {
+  :root {
+    --negro: #ececec;
+  }
+}
+/* Opcional */
+/* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+/* Opcional */
+/* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation: none !important;
+            animation: none !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+}
+/* Reseteamos los margin y paddings de todas las etiquetas */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* opcional */
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* opcional */
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* opcional */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* (Probándolo, no usar en producción) En el caso de añadir una  */
+/* p svg{
+  display: inline;
+  width: initial;
+} */
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  background-color: var(--negro);
+  font-family: var(--tipo-principal);
+  color: white;
+  /* opcional */
+  line-height: 1.4em;
+  /* opcional */
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  /* opcional */
+  font-smooth: always;
+  /* opcional */
+  -webkit-font-smoothing: antialiased;
+  /* opcional */
+  -moz-osx-font-smoothing: grayscale;
+
+  cursor: none;
+}
+
+.a{
+    cursor: none;
+}
+.circulos{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    z-index: -1;
+    
+    filter:blur(70px)
+}
+
+.circulos .circulo{
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    animation: circulo1 20s linear infinite both;
+    
+}
+
+.circulos .circulo1{
+    top: 0%;
+    left: -15%;   
+}
+
+
+.circulos .circulo1 .path{
+    fill: #4a2a30b6 ;
+}
+
+.circulos .circulo2{
+    top: 0%;
+    right: -15%;
+}
+
+.circulos .circulo2 .path{
+    fill: #ad1f772f;
+}
+
+.circulos .circulo3{
+    bottom: 0%;
+    right: -15%;
+}
+
+.circulos .circulo3 .path{
+    fill: #3f2c84;
+}
+
+.circulos .circulo4{
+    bottom: 0%;
+    left: -15%
+}
+
+.circulos .circulo4 .path{
+    fill: #2c1830;
+}
+
+.header{
+    width: 100%;
+    min-height: 5em;
+   
+
+    padding: 1em 2em;
+
+    display: flex;
+    flex-flow:row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+    z-index:3;
+}
+.header .h1{
+    
+}
+.header .h1 .a{}
+.header .nav{
+  
+}
+.header .ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .li{
+    margin: 0 1em;
+}
+.header .li .a{
+    font-family: var(--tipo-principal)
+}
+
+.main{
+    background-color: rgba(0, 0, 0, 0.75);
+    margin: 0 0 1em ;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+.section{
+    width: 100%;
+    min-height: 80vh;
+    margin: 1em 0;
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+
+   
+}
+
+.section .info{
+    animation: aparecer1 2s ease 1 backwards;
+}
+
+.section .ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.section .ul .li{
+    margin: 0 1em;
+}
+.section .ul .li .a{
+    border-top: 1px solid rgba(0, 0, 0, .7);
+    padding:1em 1em 1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    animation: aparecer1 2s ease 1 backwards;
+    
+}
+
+.section .ul>:nth-child(2) .a{
+    animation-delay: 0.2s;
+
+}
+
+.section .ul .li .a:hover{
+    background-color: rgba(12, 10, 10, 0.341);
+    color: rgba(255, 255, 255, 0.686);
+    border: 1px solid rgb(73, 40, 73);
+}
+.section .h2{
+    font-family: var(--tipo-principal);
+    font-weight: 800;
+    font-size: 5em;
+    margin:  0 0 0.5em;
+}
+.section .h3{
+    font-family: var(--tipo-principal);
+    font-size: 3em;
+    font-style: italic;
+    margin:  0 0 0.5em;
+}
+
+
+.section .p{
+    font-family: var(--tipo-secundaria);
+
+}
+.section .grid{
+    margin: 1em 0;
+    max-width: 40em;
+    width: 90%;
+   
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(15rem , 1fr));
+    gap:1em; 
+    ;
+}
+.section .article{
+    width: 100%;
+    min-height: 30vh;
+    
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    border: 5px solid  rgba(46, 40, 40, 0.075);
+    border-radius: 1em;
+
+    overflow: hidden;
+}
+.section .a{}
+.section .figure{
+    width: 100%;
+   
+}
+.section .img{
+    width: 100%;
+ 
+}
+.section .h4{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(1rem) ;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    color: white;
+    font-size: 1.4em;
+    text-transform: uppercase;
+   
+    -webkit-text-stroke: .5px black;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    transform: translatez(1) scale(1);
+    opacity: 0;
+    transition: all .5s ease;
+
+
+}
+
+.section .article:hover .h4{
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.about{
+
+}
+.about .h2{
+    margin: 0 0 1rem;
+}
+.about .p{
+    font-family: var(--tipo-secundaria);
+    text-align: left;
+    font-size: 1.2em;
+    max-width: 40em;
+    margin:  0 0 1em;
+}
+.about .rrss{
+    width: 100%;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.about .li{
+    margin:0  1em;
+}
+.about .a{}
+.about .svg{
+    width: 3em;
+    height: 3em;
+}
+
+.footer{
+    padding: 2em 0;
+    color: var(--blanco);
+    text-align: center;
+    padding: 2em 0;
+    position: relative;
+    z-index: 2;
+}
+
+.footer .span{
+
+}
+
+
+@keyframes circulo1{
+    from{
+        transform:  rotate(0deg)scale(3);
+    }
+    to{
+        transform:  rotate(180deg)scale(2);
+    }
+    to{
+        transform:  rotate(360deg)scale(3);
+    }}
+
+@keyframes aparecer1{
+    from{
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+#cursor{
+    position: fixed;
+    width: 5em;
+    height: 5em;
+    background-color: white;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    pointer-events: none;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+}
+
+#cursor.mini{
+    transform: scale(0.5);
+    transition: all .1s linear;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-flow: column wrap;
+        align-items: flex-start;
+    }
+    .header .h1 {
+        margin-bottom: 1em;
+    }
+    .header .nav {
+        width: 100%;
+    }
+    .header .li {
+        margin: 1em 0;
+    }
+}
+
+/* Estilos para pantallas medianas y grandes */
+@media (min-width: 768px) {
+    .header .ul {
+        max-width: 50%;
+    }
+    .header .li {
+        margin: 0 1em;
+    }
+}
